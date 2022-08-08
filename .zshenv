@@ -1,16 +1,12 @@
-YARN_PATH=$(yarn global bin)
+# extra paths to execute files from
+extra_paths=($(yarn global bin) "$HOME/.local/bin" "$HOME/.cargo")
 
-if [ -d $YARN_PATH ]; then
-  export PATH="$PATH:$YARN_PATH"
-fi
-
-if [ -d "$HOME/.local/bin" ]; then
-  export PATH="$PATH:$HOME/.local/bin"
-fi
-
-if [ -d "$HOME/.cargo" ]; then
-  export PATH="$PATH:$HOME/.cargo:"
-fi
+for extra in $extra_paths
+do
+  if [ -d $extra ]; then
+    export PATH="$PATH:$extra"
+  fi
+done
 
 # make npm use ipv4 for resolution
 export NODE_OPTIONS=--dns-result-order=ipv4first
