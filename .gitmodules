@@ -1,0 +1,3 @@
+[submodule ".config/ts"]
+	path = .config/ts
+	url = https://github.com/terrablue/ts

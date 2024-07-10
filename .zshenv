@@ -1,10 +1,10 @@
 # extra paths to execute files from
-extra_paths=($(yarn global bin) "$HOME/.local/bin" "$HOME/.cargo")
+extra_paths=("$HOME/.local/bin")
 
 for extra in $extra_paths
 do
   if [ -d $extra ]; then
-    export PATH="$PATH:$extra"
+    export PATH=$PATH:$extra
   fi
 done
 

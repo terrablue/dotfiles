@@ -3,7 +3,7 @@ alias vim="nvim"
 alias vi="vim"
 
 # systemctl
-alias systemctl="sudo systemctl"
+#alias systemctl="sudo systemctl"
 alias start="systemctl start"
 alias stop="systemctl stop"
 alias reload="systemctl reload"
@@ -21,11 +21,19 @@ alias d-logs="docker logs"
 alias d-enter="docker exec -it"
 alias d-rm="docker rm"
 
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias zb="rm -r ~/.cache/zig && ~/zig/zig build"
 
-ngrep() {
-  grep $1 * -iR --exclude-dir={test,build,out,tools,doc,deps,benchmark} --color=always
+zfs() {
+  ~/zig/zig fetch --save https://github.com/terrablue/$1/archive/$2.tar.gz
 }
 
-export CC="ccache gcc"
-export CXX="ccache g++"
+alias gdf='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
+ngrep() {
+  grep $1 * -iR --exclude-dir={test,build,out,tools,doc,deps,benchmark,node_modules} --color=always
+}
+
+alias debris='bun --bun x debris'
+
+#export CC="ccache gcc"
+#export CXX="ccache g++"
